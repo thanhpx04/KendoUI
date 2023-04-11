@@ -1,0 +1,30 @@
+.share-to-btn {
+    margin-top:5px;
+    width: 100px;
+}
+
+.popup-content {
+    padding: 5px;
+}
+
+.popup-content:focus {
+    outline: none;
+}     
+
+.share-button-row {
+    display: flex;
+    justify-content: center;
+}   
+
+.li-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.share-btn {
+    height: 30px;
+}
+
+.filter-row {
+    padding: 5px;
+}

@@ -1,0 +1,19 @@
+.filter-item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%
+}
+
+.action-button {
+    margin-left: 5px;
+}
+
+.filter-new-textbox{
+    padding: 5px;
+}
+
+.filter-new-button{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 5px;
+}
