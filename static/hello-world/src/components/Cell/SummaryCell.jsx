@@ -1,4 +1,6 @@
 import { router } from "@forge/bridge";
+import { Tooltip } from "@progress/kendo-react-tooltip";
+
 const SummaryCell = (props) => {
   const { dataItem } = props;
 
@@ -10,7 +12,11 @@ const SummaryCell = (props) => {
   const issueTypeComponent = (
     <span key={dataItem.key}>
       <a onClick={openInNewTab}>
-        {dataItem.summary}
+        <Tooltip anchorElement="target" position="bottom">
+          <div title={dataItem.summary} className="overflow">
+            {dataItem.summary}
+          </div>
+        </Tooltip>
       </a>
     </span>
   );

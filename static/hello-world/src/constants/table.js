@@ -1,0 +1,10 @@
+// export const COL_WIDTH_TYPE = "66px";
+// export const COL_WIDTH_KEY = "96px";
+export const COL_WIDTH_SUMMARY = "452px";
+// export const COL_WIDTH_ASSIGNEE = "170px";
+// export const COL_WIDTH_STATUS = "140px";
+// export const COL_WIDTH_STORYPOINT = "66px";
+// export const COL_WIDTH_BLOCKER = "170px";
+// export const COL_WIDTH_TEAM = "170px";
+// export const COL_WIDTH_SPRINT = "170px";
+// export const COL_WIDTH_FIXVERSION = "170px";

@@ -44,6 +44,7 @@ import IssueTreeListToolBar from "../IssueTreeListToolBar/IssueTreeListToolBar";
 import { getIdFromIssueTypeName } from "../IssueTreeListToolBar/issueType";
 import './issue-tree-list.css';
 import SummaryCell from "../Cell/SummaryCell";
+import { COL_WIDTH_SUMMARY } from "../../constants/table";
 
 const columns = [
   {
@@ -60,6 +61,7 @@ const columns = [
   {
     field: "summary",
     title: "Summary",
+    width: COL_WIDTH_SUMMARY,
     editCell: TreeListTextEditor,
     cell: SummaryCell
   },

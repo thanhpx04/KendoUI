@@ -34,6 +34,14 @@
   text-decoration: underline !important;
 }
 
+.k-grid a .overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical
+}
+
 /* 
 if want to transparent label of dropdown
 .link-issue-type-wrapper > .k-floating-label-container > .k-label,
