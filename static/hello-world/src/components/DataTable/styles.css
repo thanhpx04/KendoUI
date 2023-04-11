@@ -24,6 +24,16 @@
     line-height: 15px !important;
 }
 
+.k-grid a {
+  color: var(--ds-link, #0052CC) !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+}
+
+.k-grid a:hover {
+  text-decoration: underline !important;
+}
+
 /* 
 if want to transparent label of dropdown
 .link-issue-type-wrapper > .k-floating-label-container > .k-label,
