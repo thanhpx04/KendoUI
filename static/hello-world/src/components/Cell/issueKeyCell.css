@@ -1,3 +1,7 @@
 .issue-type-icon {
     display: inline-block;
 }
+
+.group-title {
+    font-weight: bold;
+}

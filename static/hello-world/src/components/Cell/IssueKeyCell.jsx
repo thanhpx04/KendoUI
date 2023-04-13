@@ -80,7 +80,7 @@ export const IssueKeyCell = (props) => {
       >
         {icons}
         <IssueTypeIcon/>&nbsp;
-        <a onClick={(event)=>openInNewTab(event, dataAsString)}>{dataAsString}</a>
+        {dataItem.type ? <span className='group-title'>{dataAsString}</span> : <a onClick={(event)=>openInNewTab(event, dataAsString)}>{dataAsString}</a>}
       </td>
     );
 
