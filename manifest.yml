@@ -32,7 +32,6 @@ permissions:
   external:
     fetch:
       backend:
-        - testpluginsteam.atlassian.net
-        - cloudplugindevelopment.atlassian.net
-        - testteamplugin3.atlassian.net
+        - testteamplugin.atlassian.net
+
 

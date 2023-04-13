@@ -10,8 +10,7 @@ import {
   TreeListSelectionCell,
   TreeListTextEditor
 } from "@progress/kendo-react-treelist";
-import React, { useEffect, useMemo, useRef, useState } from "react";
-import { defaultColumns } from "../../configs/defaultColumns";
+import React, { useEffect, useMemo, useRef } from "react";
 import * as idConfig from "../../configs/idConfig";
 import { GROUP_BY_TYPE } from "../../constants/groupBy";
 import { SUBTASK } from "../../constants/issueType";
@@ -19,21 +18,17 @@ import { ASSIGNEE, SPRINT } from "../../constants/tags";
 import { findChildByJql, getIssueLinkChilds } from "../../services/fetchData";
 import updateIssueLink, {
   assigneeIssue,
-  createIssue, getIssue,
-  getStorage,
-  linkNewIssue,
-  setStorage,
-  transitionIssue,
+  createIssue, getIssue, linkNewIssue, transitionIssue,
   updateIssue
 } from "../../services/service";
 import { useFilterOptionsStore } from "../../stores/FilterOptionsStore";
 import { useTreeListStore } from "../../stores/TreeListStore";
 import { arraysEqualUpToLast, getDepth, getElementById, getNodeFromIndexes, getParentIndexes, loadChild } from "../../utils/common-utils";
 import { getAssigneeGroups, getIssuesGroupBySprint, getIssuesGroupByUser, getSprints } from "../../utils/group-utils";
-import CommandCell from "../Cell/CommandCell";
 import BlockerHyperlinkCell from "../Cell/BlockerHyperlinkCell";
+import CommandCell from "../Cell/CommandCell";
 import IssueKeyCell from "../Cell/IssueKeyCell";
-import IssueTypeCell from "../Cell/IssueTypeCell";
+import SummaryCell from "../Cell/SummaryCell";
 import { AssigneeDropdown } from "../DropDown/AssigneeDropDown";
 import FixVersionsDropDown from "../DropDown/FixVersionsDropDown";
 import SprintDropDown from "../DropDown/SprintDropDown";
@@ -43,7 +38,6 @@ import TransitionDropDown from "../DropDown/TransitionDropDown";
 import IssueTreeListToolBar from "../IssueTreeListToolBar/IssueTreeListToolBar";
 import { getIdFromIssueTypeName } from "../IssueTreeListToolBar/issueType";
 import './issue-tree-list.css';
-import SummaryCell from "../Cell/SummaryCell";
 import { COL_WIDTH_SUMMARY } from "../../constants/table";
 
 const columns = [
@@ -51,12 +45,8 @@ const columns = [
     field: "key",
     title: "Issue Key",
     expandable: true, //alow expand
-    cell: IssueKeyCell
-  },
-  {
-    field: "issueType",
-    title: "Icon",
-    cell: IssueTypeCell,
+    cell: IssueKeyCell,
+    width: "10%",
   },
   {
     field: "summary",
@@ -624,6 +614,7 @@ const IssueTreeList = ({ setIsLoading, setNewFilter, myFilters, onQuery }) => {
             title: "Actions",
             cell: commandCell,
             sortable: false,
+            width: "10%",
           },
         ]}
         // columns={columns}

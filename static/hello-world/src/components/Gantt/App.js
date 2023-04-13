@@ -58,7 +58,7 @@ const getTaskId = getter(taskModelFields.id);
 const columns = [
   {
     field: taskModelFields.id,
-    title: "KEY",
+    title: "Issue Key",
     width: 120,
   },
   {

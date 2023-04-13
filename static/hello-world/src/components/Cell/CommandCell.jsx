@@ -5,6 +5,7 @@ import {
 } from "@progress/kendo-react-buttons";
 import { issueType } from "../IssueTreeListToolBar/issueType";
 import { SUB_TASK } from "../../configs/idConfig";
+import { ASSIGNEE, SPRINT } from "../../constants/tags";
 export default function CommandCell(
   enterEdit,
   remove,
@@ -19,7 +20,7 @@ export default function CommandCell(
   return class extends React.Component {
     render() {
       const { dataItem } = this.props;
-      if (dataItem.type === "SPRINT") {
+      if (dataItem.type === SPRINT || dataItem.type === ASSIGNEE) {
         return <td key={dataItem.key}></td>;
       }
       return dataItem[editField] ? (

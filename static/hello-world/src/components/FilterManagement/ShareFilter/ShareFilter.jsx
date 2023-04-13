@@ -130,7 +130,7 @@ const ShareFilter = ({selectedFilter, fetchFilters}) => {
       return (
         <div key={user.id} className="filter-row">
           <div className="li-row">
-            <div>{user.name}</div>
+            <div className="shared-user-name">{user.name}</div>
             <div>
               <Button
                 disabled={!isFilterOwner}
@@ -172,8 +172,9 @@ const ShareFilter = ({selectedFilter, fetchFilters}) => {
                 onChange={onChangeUser}
                 value={currentInput}
                 textField='name'  
+                className="input-shared-user"
             />
-            <div>
+            <div className="input-shared-user">
                 {
                     sharedUsers.map(user => sharedUserRow(user))
                 }
@@ -184,7 +185,7 @@ const ShareFilter = ({selectedFilter, fetchFilters}) => {
                     disabled={!isFilterOwner || !sharedUsers}
                     className="share-to-btn"
                     onClick={shareToUsers}
-                >Save</Button>
+                ><div className="save-text">Save</div></Button>
             </div>
             </div>
         </Popup>

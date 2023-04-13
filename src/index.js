@@ -8,7 +8,7 @@ const resolver = new Resolver();
 
 
 resolver.define('getTeams', async ({ payload }) => {
-    const response = await fetch('https://testteamplugin3.atlassian.net/rest/teams/1.0/teams/find', {body : JSON.stringify({
+    const response = await fetch('https://testteamplugin.atlassian.net/rest/teams/1.0/teams/find', {body : JSON.stringify({
         "excludedIds": [],
         "maxResults": 10,
         "query": payload.title

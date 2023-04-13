@@ -5,6 +5,7 @@ import { filterBy } from "@progress/kendo-data-query";
 import { Button } from "@progress/kendo-react-buttons";
 import ShareFilter from "./ShareFilter/ShareFilter";
 import "./filter.css"
+import { elementClosedArray, notCloseDropdownClassList } from "../../constants/notCloseSharedFilterDropDownClassName";
 
 const ManageFilter = (props) => {
   const [filters, setFilters] = useState([]);
@@ -141,7 +142,7 @@ const ManageFilter = (props) => {
         <div className="item-text">
           {li.props.children}
         </div>
-        <div>
+        <div className="item-action-wrapper">
           <ShareFilter
             selectedFilter={itemProps.dataItem}
             fetchFilters={fetchFilters}
@@ -149,7 +150,7 @@ const ManageFilter = (props) => {
           />
           <Button
             onClick={(event) => handleDelete(event, itemProps.dataItem)}
-            className="action-button"
+            className="delete-button"
             icon="delete"
           ></Button>
         </div>
@@ -162,6 +163,64 @@ const ManageFilter = (props) => {
   const openFilterDropdown = () => {
     setOpen(!open);
   }
+
+  const CloseButton = (
+    <div>
+      <hr></hr>
+      <div className="filter-new-button">
+        <Button icon="close" onClick={() => setOpen(false)}>
+          Close
+        </Button>
+      </div>
+    </div>
+  );
+
+
+  const isCloseDropDown = (event) => {
+    const classNameArray = event.target.className;
+    const offsetParentClassNameArray = event.target.offsetParent?.className;
+
+    // not close when click save
+    if (
+      classNameArray.includes("share-to-btn") ||
+      (offsetParentClassNameArray &&
+        offsetParentClassNameArray.includes("share-to-btn")) ||
+      classNameArray.includes("save-text")
+    ) {
+      return false;
+    }
+
+    for (const element of elementClosedArray) {
+      if (
+        classNameArray.includes(element.currentElement) &&
+        offsetParentClassNameArray &&
+        offsetParentClassNameArray.includes(element.parentElement)
+      ) {
+        return false;
+      }
+    }
+
+    for (const notCloseClass of notCloseDropdownClassList) {
+      if (classNameArray.includes(notCloseClass)) {
+        return false;
+      }
+    }
+
+    return true;
+  };
+
+  const handleOpen = (e) => {
+      if (isCloseDropDown(e)) {
+        setOpen(false);
+      }
+  }
+ 
+  useEffect(() => {
+    document.body.addEventListener("click",(e) => handleOpen(e));
+    return () => {
+      document.body.removeEventListener('click', (e) => handleOpen(e));
+    };
+  }, []);
 
   return (
     <>
@@ -178,7 +237,8 @@ const ManageFilter = (props) => {
         size="large"
         itemRender={itemRender}
         opened={open}
-        onClick={()=>setOpen(!open)}
+        // onClick={()=>setOpen(!open)}
+        // footer={CloseButton}
       />}
       <Button size="large" icon="saturation" onClick={openFilterDropdown}>Saved filters</Button>
     </>

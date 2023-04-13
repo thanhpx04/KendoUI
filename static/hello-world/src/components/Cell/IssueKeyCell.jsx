@@ -5,6 +5,9 @@ import { classNames, Keys } from '@progress/kendo-react-common';
 import { useTableKeyboardNavigation } from '@progress/kendo-react-data-tools';
 import { getNestedValue, TreeListCell } from '@progress/kendo-react-treelist';
 import { router } from '@forge/bridge';
+import { Tooltip } from '@progress/kendo-react-tooltip';
+import { getIconFromIssueTypeName } from '../IssueTreeListToolBar/issueType';
+import './issueKeyCell.css'
 
 export const IssueKeyCell = (props) => {
     const { hasChildren, level = [0], expanded, dataItem, format, id, ariaColumnIndex } = props;
@@ -52,6 +55,17 @@ export const IssueKeyCell = (props) => {
       router.open(`/browse/${issueKey}`);
     }
 
+    const IssueTypeIcon = () => (
+      <span className='issue-type-icon'>
+      <Tooltip anchorElement="target" position="bottom">
+        <img
+          title={dataItem.issueType}
+          src={getIconFromIssueTypeName(dataItem.issueType)}
+        />
+      </Tooltip>
+      </span>
+    );
+
     const defaultRendering = (
       <td
         style={props.style}
@@ -65,6 +79,7 @@ export const IssueKeyCell = (props) => {
         {...navigationAttributes}
       >
         {icons}
+        <IssueTypeIcon/>&nbsp;
         <a onClick={(event)=>openInNewTab(event, dataAsString)}>{dataAsString}</a>
       </td>
     );

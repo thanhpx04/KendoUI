@@ -1,1 +1,1 @@
-export const defaultColumns = ["Issue Key", "Icon", "Summary", "Assignee", "Status", "Team"]
+export const defaultColumns = ["Issue Key", "Summary", "Assignee", "Status", "Team"]
