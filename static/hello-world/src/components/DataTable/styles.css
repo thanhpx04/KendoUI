@@ -1,3 +1,16 @@
+/* Change Tab pannel the same as Jira tab */
+.k-tabstrip-top > .k-tabstrip-items-wrapper .k-item {
+  color: var(--ds-text-subtle, #42526E);
+}
+
+.k-tabstrip-top > .k-tabstrip-items-wrapper .k-item.k-active {
+  border-bottom: 2px solid var(--ds-border-selected, #0052CC) !important;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-left-color: transparent;
+}
+/******************************************/
+
 .k-panelbar>.k-item>.k-link, .k-panelbar>.k-panelbar-header>.k-link {
   color: #5E6C84 !important;
 }
