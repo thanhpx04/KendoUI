@@ -134,7 +134,7 @@ function DataTable() {
     <>
       {isLoading && <LoadingPanel/>}
       <PanelBar>
-        <PanelBarItem expanded={true} title="Filters">
+        <PanelBarItem expanded={true} title="Search Filters">
           <FilterData 
           onQuery={onQuery} 
           newFilter={newFilter}
