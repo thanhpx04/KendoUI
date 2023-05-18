@@ -1,6 +1,6 @@
 modules:
   jira:projectPage:
-    - key: terarik-ui-hello-world-page
+    - key: com-bosch-pmt-jrs-hierarchy-timeline-plugin-hello-world-project-page
       resource: main
       resolver:
         function: resolver
@@ -10,7 +10,7 @@ modules:
       handler: index.handler
 resources:
   - key: main
-    path: static/hello-world/build
+    path: static/hierarchy-timeline-plugin/build
     tunnel:
       port: 3000
 app:
@@ -32,6 +32,6 @@ permissions:
   external:
     fetch:
       backend:
-        - testteamplugin.atlassian.net
+        - testteamplugin6.atlassian.net
 
 
