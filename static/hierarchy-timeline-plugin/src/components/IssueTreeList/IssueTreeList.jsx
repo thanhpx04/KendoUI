@@ -23,7 +23,7 @@ import updateIssueLink, {
 } from "../../services/service";
 import { useFilterOptionsStore } from "../../stores/FilterOptionsStore";
 import { useTreeListStore } from "../../stores/TreeListStore";
-import { arraysEqualUpToLast, getDepth, getElementById, getNodeFromIndexes, getParentIndexes, loadChild } from "../../utils/common-utils";
+import { arraysEqualUpToLast, createNewItem, getDepth, getElementById, getNodeFromIndexes, getParentIndexes, loadChild } from "../../utils/common-utils";
 import { getAssigneeGroups, getIssuesGroupBySprint, getIssuesGroupByUser, getSprints } from "../../utils/group-utils";
 import BlockerHyperlinkCell from "../Cell/BlockerHyperlinkCell";
 import CommandCell from "../Cell/CommandCell";
@@ -196,7 +196,7 @@ const IssueTreeList = ({ setIsLoading, setNewFilter, myFilters, onQuery }) => {
   };
 
   const addChild = (dataItem, issueTypeName) => {
-    const newRecord = createNewItem();
+    const newRecord = createNewItem(projects, fixedVersions, team, sprints);
     newRecord.parentKey = dataItem.key;
     newRecord.issueType = issueTypeName;
     setInEdit([...inEdit, newRecord]);
@@ -360,14 +360,6 @@ const IssueTreeList = ({ setIsLoading, setNewFilter, myFilters, onQuery }) => {
 
   const viewDetails = (dataItem) => {
     setData([dataItem]);
-  };
-
-  const createNewItem = () => {
-    const timestamp = new Date().getTime();
-    return {
-      id: timestamp,
-      isNew: true,
-    };
   };
 
   const commandCell = CommandCell(

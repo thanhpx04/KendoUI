@@ -1,6 +1,20 @@
 import { getValueMap } from "@progress/kendo-react-dropdowns";
 import { FIX_VERSIONS, PROJECT, SPRINT, TEAM } from "../constants/tags";
 
+
+// create default issue model, auto populate data when filter context is one data selected
+export const createNewItem = (projects, fixedVersions, team, sprints) => {
+  const timestamp = new Date().getTime();
+  return {
+    id: timestamp,
+    project: projects.length == 1 ? projects[0] : null,
+    fixVersions: fixedVersions.length == 1 ? fixedVersions[0] : null,
+    team: team.length == 1 ? team[0] : null,
+    sprint: sprints.length == 1 ? sprints[0] : null,
+    isNew: true,
+  };
+};
+
 // get filter id from  saved issue link type
 export const getFilterIdFromIssueLinkTypeId = (filters, id) => {
   return filters.find((filter) => filter.name === id).id;

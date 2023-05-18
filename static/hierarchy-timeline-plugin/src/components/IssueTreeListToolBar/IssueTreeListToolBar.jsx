@@ -28,6 +28,7 @@ import { showFlag } from '@forge/bridge';
 import { showErrorFlag, showWarningFlag, showSuccessFlag } from "../../services/flag-service";
 import log from 'loglevel';
 import { SOMETHING_WENT_WRONG, SUMMARY_AND_TEAM_SELECT_ALL_ISSUE } from "../../constants/flag-message";
+import { createNewItem } from "../../utils/common-utils";
 
 const IssueTreeListToolBar = ({ setIsLoading, onQuery, columns }) => {
   const [{ data, inEdit, groupBy }, { setData, setInEdit, setGroupBy }] =
@@ -35,14 +36,6 @@ const IssueTreeListToolBar = ({ setIsLoading, onQuery, columns }) => {
 
   const [{ projects, issueLinkType, dateRange, fixedVersions, issueKey, team, sprints, status }, {}] = useFilterOptionsStore();
   let allowSaveAll = false;
-
-  const createNewItem = () => {
-    const timestamp = new Date().getTime();
-    return {
-      id: timestamp,
-      isNew: true,
-    };
-  };
 
   const findDataItemByID = (id, dataSource) => {
     let result = undefined;
@@ -72,7 +65,7 @@ const IssueTreeListToolBar = ({ setIsLoading, onQuery, columns }) => {
   };
 
   const addRecord = async (issueTypeName) => {
-    const newRecord = createNewItem();
+    const newRecord = createNewItem(projects, fixedVersions, team, sprints);
     newRecord.issueType = issueTypeName;
     setData([newRecord, ...data]);
     setInEdit([...inEdit, { ...newRecord }]);

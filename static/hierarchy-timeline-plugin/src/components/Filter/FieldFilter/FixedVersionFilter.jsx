@@ -18,7 +18,7 @@ const FixedVersionFilter = (props) => {
       Promise.all(
         props.projects.map(async (project) => {
           let versions = await getProjectVersions(project.key);
-          versions.map((v) => result.push(v.name));
+          versions.map((v) => result.push(v));
         })
       ).then(() => {
         setStaticData(result);
@@ -48,6 +48,7 @@ const FixedVersionFilter = (props) => {
       value={value}
       onFilterChange={filterChange}
       label="Fix Versions"
+      textField="name"
       onChange={(e) => {
         props.onChangeFixedVersion(e.target.value);
         setValue(e.target.value);
