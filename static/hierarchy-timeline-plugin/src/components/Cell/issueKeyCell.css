@@ -1,0 +1,21 @@
+.issue-type-icon {
+    display: inline-block;
+}
+
+.group-title {
+    font-weight: bold;
+}
+
+.summary-cell-create-new {
+    /* display: flex; */
+}
+
+.summary-cell-create-new .left {
+    /* flex: 0 0 200px; do not grow, do not shrink, start at 100px */
+    width: 200px;
+}
+
+.summary-cell-create-new .right {
+    flex: 1; /* grow */
+    margin-top: 10px;
+}

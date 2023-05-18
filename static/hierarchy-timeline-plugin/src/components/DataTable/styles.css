@@ -1,0 +1,70 @@
+.k-panelbar>.k-item>.k-link, .k-panelbar>.k-panelbar-header>.k-link {
+  color: #5E6C84 !important;
+}
+
+.k-panelbar>.k-item>.k-link.k-selected, .k-panelbar>.k-panelbar-header>.k-link.k-selected {
+  background-color: #EBECF0 !important;
+  color: #5E6C84 !important;
+}
+
+.k-floating-label-container > .k-label, .k-floating-label-container.k-focus > .k-label {
+  top: 10px !important;
+  left: 10px !important;
+  background-color: white;
+  line-height: 15px !important;
+  transform: scale(1);
+}
+
+.k-daterangepicker > label > span:first-child {
+    top: 9px;
+    left: 10px;
+    position: relative;
+    z-index: 1;
+    background-color: white !important;
+    line-height: 15px !important;
+}
+
+.k-grid a {
+  color: var(--ds-link, #0052CC) !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+}
+
+.k-grid a:hover {
+  text-decoration: underline !important;
+}
+
+.k-grid a .overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical
+}
+
+/* Change Tab pannel the same as Jira tab */
+.k-tabstrip-top > .k-tabstrip-items-wrapper .k-item {
+  color: var(--ds-text-subtle, #42526E);
+}
+
+.k-tabstrip-top > .k-tabstrip-items-wrapper .k-item.k-active {
+  border-bottom: 2px solid var(--ds-border-selected, #0052CC) !important;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-left-color: transparent;
+}
+/******************************************/
+
+.full-width {
+  width: 100vw;
+}
+
+/* 
+if want to transparent label of dropdown
+.link-issue-type-wrapper > .k-floating-label-container > .k-label,
+.link-issue-type-wrapper > .k-floating-label-container.k-focus > .k-label {
+  top: 10px !important;
+  left: 10px !important;
+  background-color: transparent;
+  transform: scale(1);
+} */

@@ -1,0 +1,1 @@
+export const DEFAULT_TAKE_PAGINATION = 20;

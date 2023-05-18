@@ -1,0 +1,1 @@
+export const formatPlaceholder = { year: 'yyyy', month: 'mm', day: 'dd' };

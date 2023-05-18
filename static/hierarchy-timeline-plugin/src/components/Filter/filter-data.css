@@ -1,0 +1,88 @@
+.project {
+    display: flex;
+    margin-bottom: 5px;
+    justify-content: center;
+}
+
+.others-filter-container {
+    display: flex;
+    margin-bottom: 15px;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.others-filter-container > * {
+    margin: 5px;
+}
+
+.item {
+    flex: 1;
+}
+
+.oneline-filter {
+    display: flex;
+    margin-bottom: 15px;
+    margin-top: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.oneline-filter > * {
+    margin: 5px;
+    flex-basis: calc(100% / 7);
+}
+
+@media screen and (max-width: 1366px) { /* Media query for small screens */
+    .oneline-filter > *:nth-child(6) {
+      flex-basis: 100%; /* Set the flex basis of the third child to 100% to force it to a new line */
+      display: flex;
+      justify-content: center;
+    }
+}
+
+.search-button {
+    padding-top: 22px;
+    margin-left: 7px;
+}
+
+.reset-element {
+    width: calc(20vw + 65px);
+}
+
+.project-box {
+    position: relative;
+}
+.manage-filter {
+    position: absolute;
+    top: 25px;
+    right: 5px;
+}
+
+.reset-button {
+    position: absolute;
+    top: 75px;
+}
+
+.k-dropdownlist.k-picker.k-picker-lg.k-rounded-md.k-picker-solid {
+    background-color: white !important;
+    background-image: none !important;
+}
+
+.k-daterange-picker .k-dateinput, .k-daterangepicker .k-dateinput {
+    width: 7em !important;
+}
+
+.project-filter .k-floating-label-container.k-empty {
+    width: 50vw;
+}
+.project-filter .k-floating-label-container{
+    width: 50vw;
+}
+.project-filter .k-multiselect.k-input.k-input-lg.k-rounded-md.k-input-solid {
+    padding-right: 10vw;
+    height: 50px;
+}
+
+.link-issue-type-wrapper .k-floating-label-container.k-empty {
+    width: 100%;
+}
